@@ -2,13 +2,13 @@ import { Pressable, StyleSheet, Text } from 'react-native';
 
 import { theme } from '../theme';
 
-interface IUserProfilePanelActionButton {
+interface UserProfilePanelActionButtonProps {
   onPress: () => void;
 }
 
 export default function UserProfilePanelActionButton({
   onPress,
-}: IUserProfilePanelActionButton) {
+}: UserProfilePanelActionButtonProps) {
   return (
     <Pressable style={styles.viewButton} onPress={onPress}>
       <Text style={styles.viewButtonText}>View</Text>
