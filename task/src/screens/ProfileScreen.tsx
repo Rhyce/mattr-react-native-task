@@ -162,7 +162,4 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     gap: theme.spacing.large,
   },
-  interestsHeader: {
-    fontWeight: theme.fontWeights.Medium,
-  },
 });
