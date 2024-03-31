@@ -1,5 +1,5 @@
 import { FlashList } from '@shopify/flash-list';
-import { useEffect } from 'react';
+import { useCallback, useEffect } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
@@ -17,15 +17,15 @@ export default function ActivityScreen() {
   );
   const dispatch = useAppDispatch();
 
-  useEffect(() => {
-    onRefresh();
-  }, []);
-
-  const onRefresh = async () => {
+  const onRefresh = useCallback(async () => {
     dispatch(setProfilesListRefreshing(true));
     await fetchUserProfiles();
     dispatch(setProfilesListRefreshing(false));
-  };
+  }, [dispatch]);
+
+  useEffect(() => {
+    onRefresh();
+  }, [onRefresh]);
 
   return (
     <View
@@ -38,7 +38,6 @@ export default function ActivityScreen() {
       <Text>Activity</Text>
       <FlashList
         data={profiles}
-        extraData={profiles}
         refreshing={profilesListRefreshing}
         onRefresh={onRefresh}
         renderItem={({ item }) => <UserProfilePanel profile={item} />}

@@ -1,6 +1,6 @@
 {
-  "extends": ["universe/native"],
-  "plugins": ["react-native"],
+  "extends": ["universe/native", "plugin:react-hooks/recommended"],
+  "plugins": ["react-native", "react-hooks"],
   "rules": {
     "react-hooks/rules-of-hooks": "error",
     "no-console": "error",
