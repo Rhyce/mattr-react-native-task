@@ -1,30 +1,30 @@
 import { FlashList } from '@shopify/flash-list';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { fetchUserProfiles } from '../api/profiles';
 import UserProfilePanel from '../components/UserProfilePanel';
+import { useAppDispatch, useAppSelector } from '../hooks';
+import { setProfilesListRefreshing } from '../state/slices/profilesSlice';
 import { theme } from '../theme';
-import { UserProfile } from '../types/UserProfile';
 
 export default function ActivityScreen() {
   const insets = useSafeAreaInsets();
 
-  const [profiles, setProfiles] = useState<UserProfile[]>();
-  const [refreshing, setRefreshing] = useState<boolean>(false);
+  const { profiles, profilesListRefreshing } = useAppSelector(
+    (state) => state.profiles,
+  );
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
-    (async () => {
-      await onRefresh();
-    })();
+    onRefresh();
   }, []);
 
   const onRefresh = async () => {
-    setRefreshing(true);
-    const fetchedProfiles = await fetchUserProfiles();
-    setProfiles(fetchedProfiles);
-    setRefreshing(false);
+    dispatch(setProfilesListRefreshing(true));
+    await fetchUserProfiles();
+    dispatch(setProfilesListRefreshing(false));
   };
 
   return (
@@ -39,7 +39,7 @@ export default function ActivityScreen() {
       <FlashList
         data={profiles}
         extraData={profiles}
-        refreshing={refreshing}
+        refreshing={profilesListRefreshing}
         onRefresh={onRefresh}
         renderItem={({ item }) => <UserProfilePanel profile={item} />}
         ListEmptyComponent={<Text>Nothing Here</Text>}

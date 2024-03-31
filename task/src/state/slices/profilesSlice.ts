@@ -4,9 +4,11 @@ import { UserProfile } from '../../types/UserProfile';
 
 interface ProfilesState {
   profiles: UserProfile[];
+  profilesListRefreshing: boolean;
 }
 const initialState: ProfilesState = {
   profiles: [],
+  profilesListRefreshing: false,
 };
 
 export const profilesSlice = createSlice({
@@ -19,8 +21,11 @@ export const profilesSlice = createSlice({
     clearProfiles: (state) => {
       state.profiles = [];
     },
+    setProfilesListRefreshing: (state, action: PayloadAction<boolean>) => {
+      state.profilesListRefreshing = action.payload;
+    },
   },
 });
 
-// Action creators are generated for each case reducer function
-export const { setProfiles, clearProfiles } = profilesSlice.actions;
+export const { setProfiles, clearProfiles, setProfilesListRefreshing } =
+  profilesSlice.actions;
