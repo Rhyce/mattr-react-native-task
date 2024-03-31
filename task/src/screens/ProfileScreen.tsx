@@ -110,18 +110,7 @@ export default function ProfileScreen({
       </View>
       <View style={styles.lowerSectionContainer}>
         <Text>{profile.bio}</Text>
-        <View
-          style={{
-            gap: theme.spacing.medium,
-          }}>
-          <Text
-            style={{
-              fontWeight: theme.fontWeights.Medium,
-            }}>
-            Interests
-          </Text>
-          <InterestsSection interests={profile.interests} />
-        </View>
+        <InterestsSection interests={profile.interests} />
       </View>
     </ScrollView>
   );
@@ -172,5 +161,8 @@ const styles = StyleSheet.create({
     paddingTop: theme.spacing.large,
     alignSelf: 'center',
     gap: theme.spacing.large,
+  },
+  interestsHeader: {
+    fontWeight: theme.fontWeights.Medium,
   },
 });

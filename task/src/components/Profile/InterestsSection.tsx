@@ -1,4 +1,4 @@
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, Text } from 'react-native';
 
 import InterestsPill from './InterestsPill';
 import { theme } from '../../theme';
@@ -10,16 +10,25 @@ interface InterestsSectionProps {
 export default function InterestsSection({ interests }: InterestsSectionProps) {
   return (
     <View style={styles.container}>
-      {interests.map((interest) => {
-        return <InterestsPill key={interest.id} interest={interest.name} />;
-      })}
+      <Text style={styles.interestsHeader}>Interests</Text>
+      <View style={styles.innerContainer}>
+        {interests.map((interest) => {
+          return <InterestsPill key={interest.id} interest={interest.name} />;
+        })}
+      </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
+    gap: theme.spacing.medium,
+  },
+  innerContainer: {
     flexDirection: 'row',
     gap: theme.spacing.large,
+  },
+  interestsHeader: {
+    fontWeight: theme.fontWeights.Medium,
   },
 });
