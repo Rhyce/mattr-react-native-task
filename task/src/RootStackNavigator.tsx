@@ -17,17 +17,17 @@ const stackNavigator = createNativeStackNavigator<TRootStackNavigator>();
 export default function RootStackNavigator() {
   return (
     <stackNavigator.Navigator
-      initialRouteName='TabNavigation'
+      initialRouteName="TabNavigation"
       screenOptions={{
         headerShown: false,
       }}>
       <stackNavigator.Screen
-        name='TabNavigation'
+        name="TabNavigation"
         component={MainTabNavigator}
       />
-      <stackNavigator.Screen name='Filter' component={FilterScreen} />
+      <stackNavigator.Screen name="Filter" component={FilterScreen} />
       <stackNavigator.Screen
-        name='OtherUserProfile'
+        name="OtherUserProfile"
         component={ProfileScreen}
       />
     </stackNavigator.Navigator>

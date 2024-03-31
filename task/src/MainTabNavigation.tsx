@@ -14,12 +14,12 @@ const tabNavigator = createBottomTabNavigator<TMainTabNavigator>();
 export default function MainTabNavigator() {
   return (
     <tabNavigator.Navigator
-      initialRouteName='Activity'
+      initialRouteName="Activity"
       screenOptions={{
         headerShown: false,
       }}>
       <tabNavigator.Screen
-        name='Activity'
+        name="Activity"
         component={ActivityScreen}
         options={{
           tabBarIcon(props) {
@@ -33,11 +33,11 @@ export default function MainTabNavigator() {
         }}
       />
       <tabNavigator.Screen
-        name='Profile'
+        name="Profile"
         component={ProfileScreen}
         options={{
           tabBarIcon(props) {
-            return <Ionicons name='person' {...props} />;
+            return <Ionicons name="person" {...props} />;
           },
         }}
       />
