@@ -1,52 +1,38 @@
 import { FlashList } from '@shopify/flash-list';
-import { useCallback, useEffect } from 'react';
+import { useEffect } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
-import { fetchMyUserProfile, fetchUserProfiles } from '../api/profiles';
+import { fetchUserProfiles } from '../api/profiles';
+import ActivityScreenHeader from '../components/ActivityScreenHeader';
 import UserProfilePanel from '../components/UserProfilePanel';
-import { useAppDispatch, useAppSelector } from '../hooks';
-import { setProfilesListRefreshing } from '../state/slices/profilesSlice';
+import { useAppSelector } from '../hooks';
 import { theme } from '../theme';
 
 export default function ActivityScreen() {
-  const insets = useSafeAreaInsets();
-
   const { profiles, profilesListRefreshing } = useAppSelector(
     (state) => state.profiles,
   );
-  const dispatch = useAppDispatch();
-
-  const onRefresh = useCallback(async () => {
-    dispatch(setProfilesListRefreshing(true));
-    await fetchUserProfiles();
-    await fetchMyUserProfile();
-    dispatch(setProfilesListRefreshing(false));
-  }, [dispatch]);
 
   useEffect(() => {
-    onRefresh();
-  }, [onRefresh]);
+    (async () => {
+      await fetchUserProfiles(); // Realistically I wouldn't call this in the screen itself, Id move it somewhere to run sooner (preventing downtime when launching the app). For this small example app though, I'll leave it here
+    })();
+  }, []);
 
   return (
-    <View
-      style={[
-        styles.container,
-        {
-          paddingTop: insets.top,
-        },
-      ]}>
-      <Text>Activity</Text>
+    <View style={styles.container}>
+      <ActivityScreenHeader />
       <FlashList
         data={profiles}
         refreshing={profilesListRefreshing}
-        onRefresh={onRefresh}
+        onRefresh={fetchUserProfiles}
         renderItem={({ item }) => <UserProfilePanel profile={item} />}
         ListEmptyComponent={<Text>Nothing Here</Text>}
         estimatedItemSize={409}
         ItemSeparatorComponent={() => {
           return <View style={styles.listSeparator} />;
         }}
+        contentContainerStyle={styles.flashListContainer}
       />
     </View>
   );
@@ -58,5 +44,8 @@ const styles = StyleSheet.create({
   },
   listSeparator: {
     height: theme.spacing.xxlarge,
+  },
+  flashListContainer: {
+    paddingVertical: theme.spacing.xlarge,
   },
 });

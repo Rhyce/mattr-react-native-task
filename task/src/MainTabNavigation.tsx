@@ -3,6 +3,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import ActivityScreen from './screens/ActivityScreen';
 import ProfileScreen from './screens/ProfileScreen';
+import { theme } from './theme';
 import { MainTabParamList } from './types/ScreenTypes';
 
 const tabNavigator = createBottomTabNavigator<MainTabParamList>();
@@ -13,6 +14,7 @@ export default function MainTabNavigator() {
       initialRouteName="Activity"
       screenOptions={{
         headerShown: false,
+        tabBarActiveTintColor: theme.colors.pink,
       }}>
       <tabNavigator.Screen
         name="Activity"
