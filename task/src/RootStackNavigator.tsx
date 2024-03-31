@@ -22,6 +22,10 @@ export default function RootStackNavigator() {
       <stackNavigator.Screen
         name="OtherUserProfile"
         component={ProfileScreen}
+        options={{
+          animation: 'slide_from_bottom', // For Android
+          presentation: 'fullScreenModal', // For iOS - Using both options helps ensure consistency between platforms.
+        }}
       />
     </stackNavigator.Navigator>
   );

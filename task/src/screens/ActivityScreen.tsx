@@ -3,7 +3,7 @@ import { useCallback, useEffect } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
-import { fetchUserProfiles } from '../api/profiles';
+import { fetchMyUserProfile, fetchUserProfiles } from '../api/profiles';
 import UserProfilePanel from '../components/UserProfilePanel';
 import { useAppDispatch, useAppSelector } from '../hooks';
 import { setProfilesListRefreshing } from '../state/slices/profilesSlice';
@@ -20,6 +20,7 @@ export default function ActivityScreen() {
   const onRefresh = useCallback(async () => {
     dispatch(setProfilesListRefreshing(true));
     await fetchUserProfiles();
+    await fetchMyUserProfile();
     dispatch(setProfilesListRefreshing(false));
   }, [dispatch]);
 

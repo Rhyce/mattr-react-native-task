@@ -22,7 +22,7 @@ interface Photos {
   path: string;
 }
 
-interface Interests {
+export interface Interests {
   id: number;
   name: string;
 }

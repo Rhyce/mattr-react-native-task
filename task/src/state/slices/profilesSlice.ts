@@ -4,10 +4,12 @@ import { UserProfile } from '../../types/UserProfile';
 
 interface ProfilesState {
   profiles: UserProfile[];
+  myProfile: UserProfile | null;
   profilesListRefreshing: boolean;
 }
 const initialState: ProfilesState = {
   profiles: [],
+  myProfile: null,
   profilesListRefreshing: false,
 };
 
@@ -24,8 +26,15 @@ export const profilesSlice = createSlice({
     setProfilesListRefreshing: (state, action: PayloadAction<boolean>) => {
       state.profilesListRefreshing = action.payload;
     },
+    setMyProfile: (state, action: PayloadAction<UserProfile>) => {
+      state.myProfile = action.payload;
+    },
   },
 });
 
-export const { setProfiles, clearProfiles, setProfilesListRefreshing } =
-  profilesSlice.actions;
+export const {
+  setProfiles,
+  clearProfiles,
+  setProfilesListRefreshing,
+  setMyProfile,
+} = profilesSlice.actions;
