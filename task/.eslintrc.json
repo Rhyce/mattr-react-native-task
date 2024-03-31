@@ -2,7 +2,6 @@
   "extends": ["universe/native"],
   "plugins": ["react-native"],
   "rules": {
-    "prettier/prettier": 0,
     "react-hooks/rules-of-hooks": "error",
     "no-console": "error",
     "prefer-const": "warn",
