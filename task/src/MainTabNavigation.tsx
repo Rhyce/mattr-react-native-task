@@ -3,13 +3,9 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import ActivityScreen from './screens/ActivityScreen';
 import ProfileScreen from './screens/ProfileScreen';
+import { MainTabParamList } from './types/ScreenTypes';
 
-type TMainTabNavigator = {
-  Activity: undefined;
-  Profile: undefined;
-};
-
-const tabNavigator = createBottomTabNavigator<TMainTabNavigator>();
+const tabNavigator = createBottomTabNavigator<MainTabParamList>();
 
 export default function MainTabNavigator() {
   return (

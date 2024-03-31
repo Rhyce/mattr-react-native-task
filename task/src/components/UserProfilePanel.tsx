@@ -1,3 +1,4 @@
+import { useNavigation } from '@react-navigation/native';
 import { BlurView } from 'expo-blur';
 import { Image } from 'expo-image';
 import { StyleSheet, Text, View } from 'react-native';
@@ -12,6 +13,7 @@ export default function UserProfilePanel({
 }: {
   profile: UserProfile;
 }) {
+  const navigation = useNavigation();
   const blurhash =
     '|rF?hV%2WCj[ayj[a|j[az_NaeWBj@ayfRayfQfQM{M|azj[azf6fQfQfQIpWXofj[ayj[j[fQayWCoeoeaya}j[ayfQa{oLj?j[WVj[ayayj[fQoff7azay';
 
@@ -35,7 +37,13 @@ export default function UserProfilePanel({
                 styles.locationText
               }>{`${profile.location.city}, ${profile.location.country}`}</Text>
           </View>
-          <UserProfilePanelActionButton />
+          <UserProfilePanelActionButton
+            onPress={() => {
+              navigation.navigate('OtherUserProfile', {
+                userId: profile.id,
+              });
+            }}
+          />
         </BlurView>
       </View>
     </View>

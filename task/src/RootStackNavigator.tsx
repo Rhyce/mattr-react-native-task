@@ -3,16 +3,9 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import MainTabNavigator from './MainTabNavigation';
 import FilterScreen from './screens/FilterScreen';
 import ProfileScreen from './screens/ProfileScreen';
+import { RootStackParamList } from './types/ScreenTypes';
 
-type TRootStackNavigator = {
-  TabNavigation: undefined;
-  OtherUserProfile: {
-    userId: number;
-  };
-  Filter: undefined;
-};
-
-const stackNavigator = createNativeStackNavigator<TRootStackNavigator>();
+const stackNavigator = createNativeStackNavigator<RootStackParamList>();
 
 export default function RootStackNavigator() {
   return (
