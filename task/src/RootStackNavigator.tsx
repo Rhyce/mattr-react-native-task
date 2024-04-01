@@ -18,7 +18,15 @@ export default function RootStackNavigator() {
         name="TabNavigation"
         component={MainTabNavigator}
       />
-      <stackNavigator.Screen name="Filter" component={FilterScreen} />
+      <stackNavigator.Screen
+        name="Filter"
+        component={FilterScreen}
+        options={{
+          animation: 'slide_from_bottom',
+          presentation: 'modal',
+          gestureEnabled: false,
+        }}
+      />
       <stackNavigator.Screen
         name="OtherUserProfile"
         component={ProfileScreen}
