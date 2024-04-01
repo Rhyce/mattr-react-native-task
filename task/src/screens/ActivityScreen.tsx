@@ -43,9 +43,9 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   listSeparator: {
-    height: theme.spacing.xxlarge,
+    height: theme.spacing.xxLarge,
   },
   flashListContainer: {
-    paddingVertical: theme.spacing.xlarge,
+    paddingVertical: theme.spacing.xLarge,
   },
 });

@@ -74,11 +74,11 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   main: {
-    paddingHorizontal: theme.spacing.xxlarge,
+    paddingHorizontal: theme.spacing.xxLarge,
   },
   inner: {
-    gap: theme.spacing.xxlarge,
-    paddingVertical: theme.spacing.xxlarge,
+    gap: theme.spacing.xxLarge,
+    paddingVertical: theme.spacing.xxLarge,
   },
   pillSelectorContainer: {
     flexDirection: 'row',

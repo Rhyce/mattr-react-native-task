@@ -55,7 +55,7 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     overflow: 'hidden',
     width: theme.sizes[90],
-    borderRadius: theme.borderRadius.xlarge,
+    borderRadius: theme.borderRadius.xLarge,
   },
   image: {
     aspectRatio: 1,
@@ -80,7 +80,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   nameText: {
-    fontSize: theme.fontSizes.xlarge,
+    fontSize: theme.fontSizes.xLarge,
     fontWeight: theme.fontWeights.Bold,
   },
   locationText: {

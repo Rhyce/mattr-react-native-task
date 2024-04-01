@@ -22,8 +22,8 @@ export default function ApplyFiltersButton() {
       style={[
         styles.button,
         {
-          bottom:
-            Platform.OS === 'android' ? theme.spacing.xxlarge : insets.bottom, // Bottom offset on Android doesn't do anything as the touchbar seems to be auto-avoided by the OS
+          marginVertical:
+            Platform.OS === 'android' ? theme.spacing.xxLarge : insets.bottom, // Bottom offset on Android doesn't do anything as the touchbar seems to be auto-avoided by the OS
           backgroundColor: filtersAreEqual
             ? theme.colors.palePurple
             : theme.colors.pink,
@@ -51,8 +51,8 @@ export default function ApplyFiltersButton() {
 const styles = StyleSheet.create({
   button: {
     backgroundColor: theme.colors.palePurple,
-    paddingVertical: theme.spacing.xxlarge,
-    marginHorizontal: theme.spacing.xxlarge,
+    paddingVertical: theme.spacing.xxLarge,
+    marginHorizontal: theme.spacing.xxLarge,
     borderRadius: theme.borderRadius.large,
   },
   text: {

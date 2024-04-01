@@ -63,13 +63,13 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    paddingVertical: theme.spacing.xlarge,
-    paddingHorizontal: theme.spacing.xxlarge,
+    paddingVertical: theme.spacing.xLarge,
+    paddingHorizontal: theme.spacing.xxLarge,
   },
   dropDownContainer: {
     gap: theme.spacing.medium,
     backgroundColor: theme.colors.antiFlashWhite,
-    padding: theme.spacing.xlarge,
+    padding: theme.spacing.xLarge,
     borderRadius: theme.borderRadius.medium,
   },
 });

@@ -32,7 +32,7 @@ export default function SelectablePill({
 
 const styles = StyleSheet.create({
   text: {
-    paddingHorizontal: theme.spacing.xlarge,
+    paddingHorizontal: theme.spacing.xLarge,
     paddingVertical: theme.spacing.medium,
     borderRadius: theme.borderRadius.medium,
     overflow: 'hidden',

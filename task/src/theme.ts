@@ -2,9 +2,9 @@ import { DefaultTheme } from '@react-navigation/native';
 import { DimensionValue } from 'react-native';
 
 type ColorName = 'white' | 'black' | 'pink' | 'palePurple' | 'antiFlashWhite';
-type FontSizeName = 'small' | 'medium' | 'large' | 'xlarge';
-type SpacingName = 'one' | 'small' | 'medium' | 'large' | 'xlarge' | 'xxlarge';
-type BorderRadiusName = 'small' | 'medium' | 'large' | 'xlarge';
+type FontSizeName = 'small' | 'medium' | 'large' | 'xLarge';
+type SpacingName = 'one' | 'small' | 'medium' | 'large' | 'xLarge' | 'xxLarge';
+type BorderRadiusName = 'small' | 'medium' | 'large' | 'xLarge';
 type SizeName = '90' | '95' | 'full';
 
 const FontWeights = {
@@ -37,7 +37,7 @@ export const theme: Theme = {
     small: 12,
     medium: 16,
     large: 20,
-    xlarge: 24,
+    xLarge: 24,
   },
   fontWeights: FontWeights,
   spacing: {
@@ -45,14 +45,14 @@ export const theme: Theme = {
     small: 4,
     medium: 6,
     large: 8,
-    xlarge: 12,
-    xxlarge: 18,
+    xLarge: 12,
+    xxLarge: 18,
   },
   borderRadius: {
     small: 4,
     medium: 8,
     large: 12,
-    xlarge: 16,
+    xLarge: 16,
   },
   sizes: {
     '90': '90%',

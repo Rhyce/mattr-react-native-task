@@ -119,7 +119,7 @@ export default function ProfileScreen({
 const styles = StyleSheet.create({
   container: {
     width: theme.sizes.full,
-    paddingBottom: theme.spacing.xlarge,
+    paddingBottom: theme.spacing.xLarge,
   },
   image: {
     aspectRatio: 0.7,
@@ -138,7 +138,7 @@ const styles = StyleSheet.create({
   blurContainer: {
     width: Dimensions.get('screen').width,
     paddingHorizontal: theme.spacing.large,
-    paddingVertical: theme.spacing.xlarge,
+    paddingVertical: theme.spacing.xLarge,
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
@@ -149,7 +149,7 @@ const styles = StyleSheet.create({
     gap: theme.spacing.small,
   },
   nameText: {
-    fontSize: theme.fontSizes.xlarge,
+    fontSize: theme.fontSizes.xLarge,
     fontWeight: theme.fontWeights.Bold,
   },
   locationText: {

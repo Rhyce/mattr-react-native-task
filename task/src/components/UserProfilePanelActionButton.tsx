@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
     borderColor: theme.colors.pink,
     borderWidth: theme.spacing.one,
     justifyContent: 'center',
-    paddingHorizontal: theme.spacing.xlarge,
+    paddingHorizontal: theme.spacing.xLarge,
     paddingVertical: theme.spacing.large,
     borderRadius: theme.borderRadius.medium,
   },

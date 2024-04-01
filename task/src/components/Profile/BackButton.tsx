@@ -21,7 +21,7 @@ export default function ProfileBackButton({
 
 const styles = StyleSheet.create({
   container: {
-    borderRadius: theme.borderRadius.xlarge,
+    borderRadius: theme.borderRadius.xLarge,
     overflow: 'hidden',
     padding: theme.spacing.medium,
   },

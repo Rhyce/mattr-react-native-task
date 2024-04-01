@@ -21,7 +21,7 @@ export function FilterScreenSection({
 
 const styles = StyleSheet.create({
   container: {
-    gap: theme.spacing.xlarge,
+    gap: theme.spacing.xLarge,
   },
   text: {
     fontSize: theme.fontSizes.medium,

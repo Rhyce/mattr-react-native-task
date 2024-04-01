@@ -43,8 +43,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    paddingVertical: theme.spacing.xlarge,
-    paddingHorizontal: theme.spacing.xxlarge,
+    paddingVertical: theme.spacing.xLarge,
+    paddingHorizontal: theme.spacing.xxLarge,
     borderRadius: theme.borderRadius.large,
   },
   dropDownButtonText: {

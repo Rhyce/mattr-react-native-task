@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    padding: theme.spacing.xlarge,
+    padding: theme.spacing.xLarge,
     backgroundColor: theme.colors.pink,
   },
   text: {

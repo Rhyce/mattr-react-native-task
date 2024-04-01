@@ -32,7 +32,7 @@ export default function ActivityScreenHeader() {
           }}>
           <Ionicons
             name="filter"
-            size={theme.fontSizes.xlarge}
+            size={theme.fontSizes.xLarge}
             color={theme.colors.white}
           />
         </Pressable>
@@ -42,7 +42,7 @@ export default function ActivityScreenHeader() {
           }}>
           <Ionicons
             name="refresh"
-            size={theme.fontSizes.xlarge}
+            size={theme.fontSizes.xLarge}
             color={theme.colors.white}
           />
         </Pressable>
@@ -55,13 +55,13 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: theme.colors.pink,
     paddingBottom: theme.spacing.medium,
-    paddingHorizontal: theme.spacing.xlarge,
+    paddingHorizontal: theme.spacing.xLarge,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
   },
   dailyConnectionsText: {
-    fontSize: theme.fontSizes.xlarge,
+    fontSize: theme.fontSizes.xLarge,
     fontWeight: theme.fontWeights.Bold,
     color: theme.colors.white,
   },
@@ -72,6 +72,6 @@ const styles = StyleSheet.create({
   },
   rightSide: {
     flexDirection: 'row',
-    gap: theme.spacing.xlarge,
+    gap: theme.spacing.xLarge,
   },
 });
