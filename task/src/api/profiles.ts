@@ -19,6 +19,7 @@ export const fetchUserProfiles = async () => {
 
   foundProfiles.shift(); // This is removing the first user, the one we're using as "Us" below
 
+  // Shuffle foundProfiles using Fisher-Yates (Knuth) shuffle
   for (let i = foundProfiles.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1)); // random index from 0 to i
     [foundProfiles[i], foundProfiles[j]] = [foundProfiles[j], foundProfiles[i]]; // swap elements
