@@ -1,6 +1,7 @@
+import { DefaultTheme } from '@react-navigation/native';
 import { DimensionValue } from 'react-native';
 
-type ColorName = 'white' | 'black' | 'pink';
+type ColorName = 'white' | 'black' | 'pink' | 'palePurple' | 'antiFlashWhite';
 type FontSizeName = 'small' | 'medium' | 'large' | 'xlarge';
 type SpacingName = 'one' | 'small' | 'medium' | 'large' | 'xlarge' | 'xxlarge';
 type BorderRadiusName = 'small' | 'medium' | 'large' | 'xlarge';
@@ -29,6 +30,8 @@ export const theme: Theme = {
     white: '#ffffff',
     black: '#000000',
     pink: '#ce1694',
+    palePurple: '#fae8f4',
+    antiFlashWhite: '#F2F3F4',
   },
   fontSizes: {
     small: 12,
@@ -55,5 +58,13 @@ export const theme: Theme = {
     '90': '90%',
     '95': '95%',
     full: '100%',
+  },
+};
+
+export const navigationTheme = {
+  ...DefaultTheme,
+  colors: {
+    ...DefaultTheme.colors,
+    background: theme.colors.white,
   },
 };

@@ -4,6 +4,7 @@ import { Provider } from 'react-redux';
 
 import RootStackNavigator from './src/RootStackNavigator';
 import store from './src/state/store';
+import { navigationTheme } from './src/theme';
 import { MainTabParamList, RootStackParamList } from './src/types/ScreenTypes';
 
 declare global {
@@ -16,7 +17,7 @@ export default function App() {
   return (
     <Provider store={store}>
       <SafeAreaProvider>
-        <NavigationContainer>
+        <NavigationContainer theme={navigationTheme}>
           <RootStackNavigator />
         </NavigationContainer>
       </SafeAreaProvider>
