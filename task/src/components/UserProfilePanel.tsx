@@ -31,7 +31,7 @@ export default function UserProfilePanel({
             <Text
               style={
                 styles.nameText
-              }>{`${profile.first_name} ${profile.last_name}, ${calculateAgeFromDOB(profile.dob)}`}</Text>
+              }>{`${profile.first_name} ${profile.last_name}, ${calculateAgeFromDOB(profile.dob)} `}</Text>
             <Text
               style={
                 styles.locationText

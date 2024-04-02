@@ -23,7 +23,7 @@ export default function ApplyFiltersButton() {
         styles.button,
         {
           marginVertical:
-            Platform.OS === 'android' ? theme.spacing.xxLarge : insets.bottom, // Bottom offset on Android doesn't do anything as the touchbar seems to be auto-avoided by the OS
+            Platform.OS === 'android' ? theme.spacing.xxLarge : insets.bottom, // Bottom offset on Android doesn't do anything as the bar seems to be auto-avoided by the OS
           backgroundColor: filtersAreEqual
             ? theme.colors.palePurple
             : theme.colors.pink,
@@ -34,7 +34,7 @@ export default function ApplyFiltersButton() {
           return;
         }
         dispatch(applyFilters());
-        fetchUserProfiles();
+        fetchUserProfiles(); // Maybe this shouldn't auto-refetch as refetching when changing sort options probably isn't the expected function.
         navigation.goBack();
       }}>
       <Text

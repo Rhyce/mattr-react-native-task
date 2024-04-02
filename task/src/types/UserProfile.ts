@@ -1,8 +1,10 @@
+import { Genders } from '../enums';
+
 export interface UserProfile {
   id: number;
   first_name: string;
   last_name: string;
-  gender: 'male' | 'female' | 'other';
+  gender: Genders;
   bio: string;
   score: number;
   location: Location;
