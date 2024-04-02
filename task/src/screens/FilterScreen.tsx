@@ -14,6 +14,7 @@ import {
 } from '../state/slices/filtersSlice';
 import strings from '../strings';
 import { theme } from '../theme';
+import Separator from '../components/Separator';
 
 export default function FilterScreen() {
   const filtersState = useAppSelector((store) => store.filters);
@@ -39,6 +40,7 @@ export default function FilterScreen() {
                 ))}
               </View>
             </FilterScreenSection>
+            <Separator />
             <FilterScreenSection label={strings.filters.ageRanges}>
               <View style={styles.pillSelectorContainer}>
                 {Object.values(AgeRanges).map((ageRange) => (
@@ -53,6 +55,7 @@ export default function FilterScreen() {
                 ))}
               </View>
             </FilterScreenSection>
+            <Separator />
             <FilterScreenSection label={strings.filters.sortBy}>
               <DropDownSelector
                 selectedValue={filtersState.tempSortBy}
