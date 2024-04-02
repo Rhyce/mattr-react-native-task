@@ -7,6 +7,7 @@ import ActivityScreenHeader from '../components/ActivityScreenHeader';
 import UserProfilePanel from '../components/UserProfilePanel';
 import { useAppSelector } from '../hooks';
 import { theme } from '../theme';
+import { loadLikes } from '../utils/utils';
 
 export default function ActivityScreen() {
   const { profiles, profilesListRefreshing } = useAppSelector(
@@ -16,6 +17,7 @@ export default function ActivityScreen() {
   useEffect(() => {
     (async () => {
       await fetchUserProfiles(); // Realistically I wouldn't call this in the screen itself, Id move it somewhere to run sooner (preventing downtime when launching the app). For this small example app though, I'll leave it here
+      await loadLikes(); // Same goes for this.
     })();
   }, []);
 

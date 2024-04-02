@@ -3,10 +3,18 @@ import { Pressable } from 'react-native';
 
 import { theme } from '../../theme';
 
-export default function LikeButton() {
+interface LikeButtonProps {
+  onPress: () => void;
+  active: boolean;
+}
+export default function LikeButton({ onPress, active }: LikeButtonProps) {
   return (
-    <Pressable>
-      <Ionicons name="heart-outline" size={40} color={theme.colors.pink} />
+    <Pressable onPress={onPress}>
+      <Ionicons
+        name={active ? 'heart' : 'heart-outline'}
+        size={40}
+        color={theme.colors.pink}
+      />
     </Pressable>
   );
 }

@@ -6,11 +6,13 @@ interface ProfilesState {
   profiles: UserProfile[];
   myProfile: UserProfile | null;
   profilesListRefreshing: boolean;
+  likedUsers: number[];
 }
 const initialState: ProfilesState = {
   profiles: [],
   myProfile: null,
   profilesListRefreshing: false,
+  likedUsers: [],
 };
 
 export const profilesSlice = createSlice({
@@ -29,6 +31,14 @@ export const profilesSlice = createSlice({
     setMyProfile: (state, action: PayloadAction<UserProfile>) => {
       state.myProfile = action.payload;
     },
+    addLikedUser: (state, action: PayloadAction<number>) => {
+      if (!state.likedUsers.includes(action.payload)) {
+        state.likedUsers.push(action.payload);
+      }
+    },
+    setLikedUsers: (state, action: PayloadAction<number[]>) => {
+      state.likedUsers = action.payload;
+    },
   },
 });
 
@@ -37,4 +47,6 @@ export const {
   clearProfiles,
   setProfilesListRefreshing,
   setMyProfile,
+  addLikedUser,
+  setLikedUsers,
 } = profilesSlice.actions;

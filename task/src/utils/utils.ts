@@ -1,6 +1,9 @@
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { DateTime } from 'luxon';
 
 import { AgeRanges, Genders, SortByOptions } from '../enums';
+import { addLikedUser, setLikedUsers } from '../state/slices/profilesSlice';
+import store from '../state/store';
 import { UserProfile } from '../types/UserProfile';
 
 export const calculateAgeFromDOB = (dob: string): number => {
@@ -50,4 +53,30 @@ export const sortUserProfiles = (
     }
     return comparison;
   });
+};
+
+export const addNewLike = async (id: number) => {
+  const likes = await fetchLikes();
+  likes.push(id);
+  try {
+    await AsyncStorage.setItem('LIKES', JSON.stringify(likes));
+    store.dispatch(addLikedUser(id));
+  } catch {
+    throw new Error('Error getting/saving likes from storage');
+  }
+};
+
+const fetchLikes = async (): Promise<number[]> => {
+  const likesVal = await AsyncStorage.getItem('LIKES');
+  return likesVal != null ? JSON.parse(likesVal) : [];
+};
+
+export const loadLikes = async (): Promise<number[]> => {
+  try {
+    const likes = await fetchLikes();
+    store.dispatch(setLikedUsers(likes));
+    return likes;
+  } catch {
+    throw new Error('Error Loading Likes');
+  }
 };

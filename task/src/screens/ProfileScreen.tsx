@@ -15,7 +15,7 @@ import { useAppSelector } from '../hooks';
 import { theme } from '../theme';
 import { MainTabParamList, RootStackParamList } from '../types/ScreenTypes';
 import { UserProfile } from '../types/UserProfile';
-import { calculateAgeFromDOB } from '../utils/utils';
+import { addNewLike, calculateAgeFromDOB } from '../utils/utils';
 
 type ProfileScreenProps =
   | NativeStackScreenProps<RootStackParamList, 'OtherUserProfile'>
@@ -37,6 +37,10 @@ export default function ProfileScreen({
     state.profiles.profiles.find(
       (profile) => profile.id === route.params?.userId,
     ),
+  );
+
+  const likedUser = useAppSelector((state) =>
+    state.profiles.likedUsers.find((id) => id === profile?.id),
   );
 
   useFocusEffect(
@@ -104,7 +108,14 @@ export default function ProfileScreen({
                   styles.locationText
                 }>{`${profile.location.city}, ${profile.location.country}`}</Text>
             </View>
-            {!isMyProfile && <LikeButton />}
+            {!isMyProfile && (
+              <LikeButton
+                onPress={() => {
+                  addNewLike(profile.id);
+                }}
+                active={Boolean(likedUser)}
+              />
+            )}
           </BlurView>
         </View>
       </View>
