@@ -1,5 +1,6 @@
 import { Pressable, StyleSheet, Text } from 'react-native';
 
+import strings from '../strings';
 import { theme } from '../theme';
 
 interface UserProfilePanelActionButtonProps {
@@ -11,7 +12,9 @@ export default function UserProfilePanelActionButton({
 }: UserProfilePanelActionButtonProps) {
   return (
     <Pressable style={styles.viewButton} onPress={onPress}>
-      <Text style={styles.viewButtonText}>View</Text>
+      <Text style={styles.viewButtonText}>
+        {strings.profileList.viewProfile}
+      </Text>
     </Pressable>
   );
 }

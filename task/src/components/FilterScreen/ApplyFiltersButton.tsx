@@ -9,6 +9,7 @@ import {
   applyFilters,
   selectAreTempFiltersEqualToSetFilters,
 } from '../../state/slices/filtersSlice';
+import strings from '../../strings';
 import { theme } from '../../theme';
 
 export default function ApplyFiltersButton() {
@@ -42,7 +43,7 @@ export default function ApplyFiltersButton() {
           { color: filtersAreEqual ? theme.colors.pink : theme.colors.white },
           styles.text,
         ]}>
-        Apply Filters
+        {strings.filters.applyFilters}
       </Text>
     </Pressable>
   );

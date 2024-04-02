@@ -6,6 +6,7 @@ import { fetchUserProfiles } from '../api/profiles';
 import ActivityScreenHeader from '../components/ActivityScreenHeader';
 import UserProfilePanel from '../components/UserProfilePanel';
 import { useAppSelector } from '../hooks';
+import strings from '../strings';
 import { theme } from '../theme';
 import { loadLikes } from '../utils/utils';
 
@@ -29,7 +30,7 @@ export default function ActivityScreen() {
         refreshing={profilesListRefreshing}
         onRefresh={fetchUserProfiles}
         renderItem={({ item }) => <UserProfilePanel profile={item} />}
-        ListEmptyComponent={<Text>Nothing Here</Text>}
+        ListEmptyComponent={<Text>{strings.profileList.noProfiles}</Text>}
         estimatedItemSize={409}
         ItemSeparatorComponent={() => {
           return <View style={styles.listSeparator} />;

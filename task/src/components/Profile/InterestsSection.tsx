@@ -1,6 +1,7 @@
 import { View, StyleSheet, Text } from 'react-native';
 
 import InterestsPill from './InterestsPill';
+import strings from '../../strings';
 import { theme } from '../../theme';
 import { Interests } from '../../types/UserProfile';
 
@@ -10,7 +11,7 @@ interface InterestsSectionProps {
 export default function InterestsSection({ interests }: InterestsSectionProps) {
   return (
     <View style={styles.container}>
-      <Text style={styles.interestsHeader}>Interests</Text>
+      <Text style={styles.interestsHeader}>{strings.profile.interests}</Text>
       <View style={styles.innerContainer}>
         {interests.map((interest) => {
           return <InterestsPill key={interest.id} interest={interest.name} />;

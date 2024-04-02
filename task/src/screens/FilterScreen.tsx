@@ -12,6 +12,7 @@ import {
   setTempGender,
   setTempSortBy,
 } from '../state/slices/filtersSlice';
+import strings from '../strings';
 import { theme } from '../theme';
 
 export default function FilterScreen() {
@@ -24,7 +25,7 @@ export default function FilterScreen() {
       <ScrollView>
         <View style={styles.main}>
           <View style={styles.inner}>
-            <FilterScreenSection label="Gender">
+            <FilterScreenSection label={strings.filters.gender}>
               <View style={styles.pillSelectorContainer}>
                 {Object.values(Genders).map((gender) => (
                   <SelectablePill
@@ -38,7 +39,7 @@ export default function FilterScreen() {
                 ))}
               </View>
             </FilterScreenSection>
-            <FilterScreenSection label="Age Ranges">
+            <FilterScreenSection label={strings.filters.ageRanges}>
               <View style={styles.pillSelectorContainer}>
                 {Object.values(AgeRanges).map((ageRange) => (
                   <SelectablePill
@@ -52,7 +53,7 @@ export default function FilterScreen() {
                 ))}
               </View>
             </FilterScreenSection>
-            <FilterScreenSection label="Sort By">
+            <FilterScreenSection label={strings.filters.sortBy}>
               <DropDownSelector
                 selectedValue={filtersState.tempSortBy}
                 onValueChange={(value, index) => {

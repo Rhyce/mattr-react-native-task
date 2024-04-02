@@ -4,6 +4,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useDispatch } from 'react-redux';
 
 import { applyFilters, resetFilters } from '../../state/slices/filtersSlice';
+import strings from '../../strings';
 import { theme } from '../../theme';
 
 export default function FilterScreenHeader() {
@@ -25,15 +26,16 @@ export default function FilterScreenHeader() {
           navigation.goBack();
           // Also clear state if not saved
         }}>
-        <Text style={styles.text}>Cancel</Text>
+        <Text style={styles.text}>{strings.ctas.cancel}</Text>
       </Pressable>
-      <Text style={[styles.text, styles.title]}>Filter</Text>
+      <Text style={[styles.text, styles.title]}>{strings.filters.title}</Text>
       <Pressable
+        hitSlop={100}
         onPress={() => {
           dispatch(resetFilters());
           dispatch(applyFilters());
         }}>
-        <Text style={styles.text}>Clear All</Text>
+        <Text style={styles.text}>{strings.ctas.clear}</Text>
       </Pressable>
     </View>
   );
@@ -43,14 +45,16 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
     justifyContent: 'space-between',
+    alignItems: 'center',
     padding: theme.spacing.xLarge,
     backgroundColor: theme.colors.pink,
   },
   text: {
     color: theme.colors.white,
-    fontSize: theme.fontSizes.medium,
+    padding: theme.spacing.medium,
   },
   title: {
     fontWeight: theme.fontWeights.SemiBold,
+    fontSize: theme.fontSizes.medium,
   },
 });
