@@ -1,10 +1,12 @@
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { useNavigation } from '@react-navigation/native';
+import * as Haptics from 'expo-haptics';
 import { DateTime } from 'luxon';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { fetchUserProfiles } from '../api/profiles';
+import strings from '../strings';
 import { theme } from '../theme';
 
 export default function ActivityScreenHeader() {
@@ -20,7 +22,9 @@ export default function ActivityScreenHeader() {
         },
       ]}>
       <View>
-        <Text style={styles.dailyConnectionsText}>Daily Connections</Text>
+        <Text style={styles.dailyConnectionsText}>
+          {strings.profileList.dailyConnections}
+        </Text>
         <Text style={styles.currentDateText}>
           {DateTime.now().toFormat('dd LLL')}
         </Text>
@@ -28,6 +32,7 @@ export default function ActivityScreenHeader() {
       <View style={styles.rightSide}>
         <Pressable
           onPress={() => {
+            Haptics.selectionAsync();
             navigation.navigate('Filter');
           }}>
           <Ionicons
@@ -38,6 +43,7 @@ export default function ActivityScreenHeader() {
         </Pressable>
         <Pressable
           onPress={async () => {
+            Haptics.selectionAsync();
             await fetchUserProfiles();
           }}>
           <Ionicons

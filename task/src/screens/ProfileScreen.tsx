@@ -2,6 +2,7 @@ import { BottomTabScreenProps } from '@react-navigation/bottom-tabs';
 import { useFocusEffect } from '@react-navigation/native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { BlurView } from 'expo-blur';
+import * as Haptics from 'expo-haptics';
 import { Image } from 'expo-image';
 import { useCallback, useState } from 'react';
 import { Dimensions, ScrollView, StyleSheet, Text, View } from 'react-native';
@@ -16,6 +17,7 @@ import { theme } from '../theme';
 import { MainTabParamList, RootStackParamList } from '../types/ScreenTypes';
 import { UserProfile } from '../types/UserProfile';
 import { addNewLike, calculateAgeFromDOB } from '../utils/utils';
+import strings from '../strings';
 
 type ProfileScreenProps =
   | NativeStackScreenProps<RootStackParamList, 'OtherUserProfile'>
@@ -56,7 +58,7 @@ export default function ProfileScreen({
   if (!profile) {
     return (
       <View>
-        <Text>Loading</Text>
+        <Text>{strings.loading}</Text>
       </View>
     );
   }
@@ -89,6 +91,7 @@ export default function ProfileScreen({
             {!isMyProfile && (
               <ProfileBackButton
                 onPressed={() => {
+                  Haptics.selectionAsync();
                   navigation.goBack();
                 }}
               />
@@ -111,6 +114,7 @@ export default function ProfileScreen({
             {!isMyProfile && (
               <LikeButton
                 onPress={() => {
+                  Haptics.selectionAsync();
                   addNewLike(profile.id);
                 }}
                 active={Boolean(likedUser)}

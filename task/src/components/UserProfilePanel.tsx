@@ -1,5 +1,6 @@
 import { useNavigation } from '@react-navigation/native';
 import { BlurView } from 'expo-blur';
+import * as Haptics from 'expo-haptics';
 import { Image } from 'expo-image';
 import { StyleSheet, Text, View } from 'react-native';
 
@@ -39,6 +40,7 @@ export default function UserProfilePanel({
           </View>
           <UserProfilePanelActionButton
             onPress={() => {
+              Haptics.selectionAsync();
               navigation.navigate('OtherUserProfile', {
                 userId: profile.id,
               });

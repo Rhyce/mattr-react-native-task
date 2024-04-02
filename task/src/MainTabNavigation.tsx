@@ -1,5 +1,6 @@
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import * as Haptics from 'expo-haptics';
 
 import ActivityScreen from './screens/ActivityScreen';
 import ProfileScreen from './screens/ProfileScreen';
@@ -12,6 +13,11 @@ export default function MainTabNavigator() {
   return (
     <tabNavigator.Navigator
       initialRouteName="Activity"
+      screenListeners={({ navigation }) => ({
+        tabPress: () => {
+          Haptics.selectionAsync();
+        },
+      })}
       screenOptions={{
         headerShown: false,
         tabBarActiveTintColor: theme.colors.pink,

@@ -2,6 +2,7 @@ const strings = {
   profileList: {
     viewProfile: 'View',
     noProfiles: 'No Profiles Found',
+    dailyConnections: 'Daily Connections',
   },
   filters: {
     applyFilters: 'Apply Filters',
@@ -17,6 +18,7 @@ const strings = {
   profile: {
     interests: 'Interests',
   },
+  loading: 'Loading',
 };
 
 export default strings;

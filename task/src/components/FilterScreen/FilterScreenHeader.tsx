@@ -1,4 +1,5 @@
 import { useNavigation } from '@react-navigation/native';
+import * as Haptics from 'expo-haptics';
 import { Platform, Pressable, StyleSheet, Text, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useDispatch } from 'react-redux';
@@ -23,6 +24,7 @@ export default function FilterScreenHeader() {
       ]}>
       <Pressable
         onPress={() => {
+          Haptics.selectionAsync();
           navigation.goBack();
           // Also clear state if not saved
         }}>
@@ -32,6 +34,7 @@ export default function FilterScreenHeader() {
       <Pressable
         hitSlop={100}
         onPress={() => {
+          Haptics.selectionAsync();
           dispatch(resetFilters());
           dispatch(applyFilters());
         }}>

@@ -1,3 +1,4 @@
+import * as Haptics from 'expo-haptics';
 import React from 'react';
 import { Pressable, Text, StyleSheet } from 'react-native';
 
@@ -16,6 +17,7 @@ export default function DropDownItem<T>({
   return (
     <Pressable
       onPress={() => {
+        Haptics.selectionAsync();
         onPress(option);
       }}
       style={[

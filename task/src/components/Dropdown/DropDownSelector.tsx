@@ -1,4 +1,5 @@
 import Ionicons from '@expo/vector-icons/Ionicons';
+import * as Haptics from 'expo-haptics';
 import React, { useState } from 'react';
 import { View, Pressable, Text, StyleSheet } from 'react-native';
 
@@ -20,7 +21,12 @@ export default function DropDownSelector<T>({
 
   return (
     <View style={styles.container}>
-      <Pressable onPress={() => setIsOpen(!isOpen)} style={styles.mainButton}>
+      <Pressable
+        onPress={() => {
+          Haptics.selectionAsync();
+          setIsOpen(!isOpen);
+        }}
+        style={styles.mainButton}>
         <Text style={styles.mainCurrentOptionText}>
           {String(selectedValue)}
         </Text>

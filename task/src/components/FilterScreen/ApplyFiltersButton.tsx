@@ -1,4 +1,5 @@
 import { useNavigation } from '@react-navigation/native';
+import * as Haptics from 'expo-haptics';
 import { Text, Pressable, StyleSheet, Platform } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useSelector } from 'react-redux';
@@ -11,7 +12,6 @@ import {
 } from '../../state/slices/filtersSlice';
 import strings from '../../strings';
 import { theme } from '../../theme';
-
 export default function ApplyFiltersButton() {
   const insets = useSafeAreaInsets();
   const dispatch = useAppDispatch();
@@ -34,6 +34,7 @@ export default function ApplyFiltersButton() {
         if (filtersAreEqual) {
           return;
         }
+        Haptics.selectionAsync();
         dispatch(applyFilters());
         fetchUserProfiles(); // Maybe this shouldn't auto-refetch as refetching when changing sort options probably isn't the expected function.
         navigation.goBack();
